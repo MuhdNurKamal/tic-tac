@@ -13,7 +13,7 @@ class Game:
             print("%s, choose a box to place an '%s' into:" % (curr_player_name, curr_marker))
             
             while True:
-                idx = Util.get_int_input(lambda x: x.isdigit() and int(x) >= 1, "Error! box must be an integer and box >= 1. Input box again:")
+                idx = Util.get_int_input(lambda x: x.isdigit() and int(x) in range(1, N ** 2 + 1), "Error! box must be an integer and box >= 1 and box <= %s. Input box again:" % N ** 2)
                 i, j = self.idx_to_coord(idx)
                 if i >= 0 and i < N and j >= 0 and j < N and self.board[i][j] == idx:
                     break
